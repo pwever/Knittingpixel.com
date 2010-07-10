@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title><%= controller.controller_name.titlecase %> <%= controller.action_name.titlecase %></title>
+  <%= javascript_include_tag :defaults %>
+  <%= javascript_include_tag "init" %>
+  <%= stylesheet_link_tag 'scaffold' %>
+  <%= stylesheet_link_tag 'styles' %>
+	<meta name="viewport" content="width=550; initial-scale=0.75; maximum-scale=1.0; user-scalable=0;" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+</head>
+<body>
+<div id="container">	
+	<% if flash[:warning] or flash[:notice] %>
+	  <div id="notice" <% if flash[:warning] %>class="warning"<% end %>>
+	    <%= flash[:warning] || flash[:notice] %>
+	  </div>
+	<% end %>
+	
+<div id="side">
+	<% 
+	@contexts = Context.find(:all)
+	@tags = Tag.find(:all)
+	%>
+	
+	<ul class="navigation">
+		<li><%= link_to "today", :controller => "todos" %></li>
+		<%- @contexts.each do |c| -%>
+		<li class="<%= ' active' if (@context && @context==c)%>">@<%= link_to c.label, c %></li>
+		<%- end -%>
+		<%- @tags.each do |t| -%>
+		<li class="tag"><span style="background-color:<%= t.getColor %>">#<%= link_to t.label, t %></span></li>
+		<%- end -%>
+	</ul>
+</div>
+	
+<div id="content">
+<%= yield  %>
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,11 @@
+
+
+<ul class="todos">
+	<li><form class="new_todo_form">
+		<div><input type="text" id="new_todo_label" name="todo[label]" alt="Today" value="Today" /></div>
+	</form></li>
+	<%- @todos.each do |@todo| -%>
+	<li><input type="checkbox" value="<%= @todo.id %>" <%= "checked" if @todo.done %> /> <%= render :partial => 'todos/todo' %></li>
+	<%- end -%>
+</ul>
+

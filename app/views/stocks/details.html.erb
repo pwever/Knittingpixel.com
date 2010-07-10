@@ -1,0 +1,60 @@
+
+<table class="block stocks">
+  <tr>
+	<th></th>
+	<th>Company</th>
+	<th>Price</th>
+	<th>Shares</th>
+	<th>Value</th>
+	<th>Gain</th>
+	<th>%Gain</th>
+	<th>Yearly</th>
+	<th>Bought</th>
+	<th>For</th>
+	<th>Sold</th>
+	<th>At</th>
+	<th>Days held</th>
+	<th>Years held</th>
+  </tr>
+
+<% 
+	balance    = 0
+	investment = 0
+	gain       = 0
+%>
+<% @stocks.each do |stock| %>
+<%
+	balance    += stock.market_value unless stock.sold
+	investment += stock.original_investment
+	gain       += stock.gain
+%>
+
+  <tr class="<%= "loss" unless stock.has_gained() %> <%= "sold" if stock.sold %>">
+	<td class="symbol"><%=h stock.symbol.upcase %></td>
+	<td class="name"><%=h stock.company %></td>
+	<td class="currency"><%=h currencify(stock.price) if !stock.sold && stock.price %></td>
+	<td><%=h stock.shares %></td>
+	<td class="currency"><%=h currencify(stock.market_value()) unless stock.sold %></td>
+	<td class="gain currency"><%=h currencify(stock.gain()) %></td>
+	<td class="gain percentage"><%=h "%.1f\%" % stock.percentage_gain() %></td>
+	<td class="gain percentage"><%=h "%.1f\%" % stock.yearly_gain() %></td>
+	<td class="date"><%=h stock.buy_date %></td>
+	<td class="currency"><%=h currencify(stock.buy_price) if stock.buy_price %></td>
+	<td class="date"><%=h stock.sell_date if stock.sold %></td>
+	<td class="currency"><%=h currencify(stock.sell_price) if stock.sold && stock.sell_price %></td>
+	<td><%=h stock.days_held %></td>
+	<td><%=h "%.1f" % stock.years_held %></td>
+	<td><%= link_to 'Edit', edit_stock_path(stock) %></td>
+  </tr>
+<% end %>
+
+  <tr class="totals">
+	<td colspan="4">Total returns</td>
+	<td class="currency"><%=h currencify_rounded(balance) %></td>
+	<td class="currency"><%=h currencify_rounded(gain) %></td>
+	<td class="percentage"><%=h "%.2f\%" % (100*gain/investment) %></td>
+	<td>&nbsp;</td>
+  </tr>
+</table>
+
+<%= link_to 'Summary', :action => 'index' %>

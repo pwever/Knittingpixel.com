@@ -1,0 +1,15 @@
+
+
+email_address:  "user@domain.com"
+
+smtp_server:    "smtp.domain.com"
+smtp_port:      587
+smtp_username:  "username"
+smtp_password:  "password"
+
+imap_server:    "imap.domain.com"
+imap_port:      993
+imap_username:  "user@domain.com"
+imap_password:  "password"
+
+recipient:      "user@domain.com"

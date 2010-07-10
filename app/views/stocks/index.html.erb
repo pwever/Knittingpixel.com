@@ -1,0 +1,47 @@
+
+<table class="block stocks">
+  <tr>
+	<th></th>
+	<th>Company</th>
+	<th>Price</th>
+	<th>Shares</th>
+	<th>Value</th>
+	<th>Gain</th>
+	<th>%Gain</th>
+	<th>Yearly</th>
+  </tr>
+
+<% 
+	balance    = 0
+	investment = 0
+	gain       = 0
+%>
+<% @stocks.each do |stock| %>
+<%
+	balance    += stock.market_value unless stock.sold
+	investment += stock.original_investment
+	gain       += stock.gain
+%>
+
+  <tr class="<%= "loss" unless stock.has_gained() %> <%= "sold" if stock.sold %>">
+	<td class="symbol"><a href="http://www.google.com/finance?q=<%=h stock.symbol.upcase %>"><%=h stock.symbol.upcase %></a></td>
+	<td class="name"><%=h stock.company %></td>
+	<td class="currency"><%=h currencify_rounded(stock.price) if !stock.sold && stock.price %></td>
+	<td class="shares"><%=h "%i" % stock.shares %></td>
+	<td class="currency"><%=h currencify_rounded(stock.market_value()) unless stock.sold %></td>
+	<td class="gain currency"><%=h currencify_rounded(stock.gain()) %></td>
+	<td class="gain percentage"><%=h "%i%" % stock.percentage_gain() %></td>
+	<td class="gain percentage<%= " projected" if stock.years_held<1 %>"><%=h "%i\%" % stock.yearly_gain() %></td>
+  </tr>
+<% end %>
+
+  <tr class="totals">
+	<td colspan="4">Total returns</td>
+	<td class="currency"><%=h currencify_rounded(balance) %></td>
+	<td class="currency"><%=h currencify_rounded(gain) %></td>
+	<td class="percentage"><%=h "%.2f\%" % (100*gain/investment) %></td>
+	<td>&nbsp;</td>
+  </tr>
+</table>
+
+<%= link_to 'Details', :action => 'details' %>

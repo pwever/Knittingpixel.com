@@ -1,0 +1,18 @@
+
+
+<% @contexts.each do |@context| -%>
+	<ul class="todos">
+		<li><form class="new_todo_form">
+			<input type="hidden" id="<%= @context.label %>_context_id" name="todo[context_id]" value="<%= @context.id %>" />
+			<div><input type="text" id="new_todo_label" name="todo[label]" alt="@<%= @context.label %>" value="@<%= @context.label %>" /></div>
+		</form></li>
+		<%- @context.due_todos.each do |@todo| -%>
+		<li><input type="checkbox" value="<%= @todo.id %>" <%= "checked" if @todo.done %> /> <%= render :partial => 'todos/todo' %></li>
+		<%- end -%>
+		<div class="closed"><a href="#" onclick="$(this).up().toggleClassName('closed');this.blur();" style="display:block;margin:0.5em 0">Others...</a>
+		<%- @context.general_todos.each do |@todo| -%>
+		<li><input type="checkbox" value="<%= @todo.id %>" <%= "checked" if @todo.done %> /> <%= render :partial => 'todos/todo' %></li>
+		<%- end -%>
+		</div>
+	</ul>
+<% end -%>

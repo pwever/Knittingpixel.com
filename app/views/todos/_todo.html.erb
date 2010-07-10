@@ -1,0 +1,11 @@
+
+	<span class="label"><%= @todo.label %></span>
+	<span class="labels">
+<%- if @todo.due_at -%>
+	<span class="timestamp<%= ' due' if @todo.isDue? %>"><%= distance_of_time_in_words_to_now(@todo.due_at) %></span>
+<%- end -%>
+<% @todo.tags.each do |tag| -%>
+	<span class="tag" style="background-color:<%= tag.getColor %>">#<%= link_to tag.label, tag %></span>
+<% end -%>
+	<span class="delete"><a href="#">&times;</a></span>
+	</span>

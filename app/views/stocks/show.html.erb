@@ -1,0 +1,38 @@
+<p>
+  <b>Symbol:</b>
+  <%=h @stock.symbol %>
+</p>
+
+<p>
+  <b>Company:</b>
+  <%=h @stock.company %>
+</p>
+
+<p>
+  <b>Shares:</b>
+  <%=h @stock.shares %>
+</p>
+
+<p>
+  <b>Buy date:</b>
+  <%=h @stock.buy_date %>
+</p>
+
+<p>
+  <b>Buy price:</b>
+  <%=h @stock.buy_price %>
+</p>
+
+<p>
+  <b>Sell date:</b>
+  <%=h @stock.sell_date %>
+</p>
+
+<p>
+  <b>Sell price:</b>
+  <%=h @stock.sell_price %>
+</p>
+
+
+<%= link_to 'Edit', edit_stock_path(@stock) %> |
+<%= link_to 'Back', stocks_path %>

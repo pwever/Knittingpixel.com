@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>KP</title>
+  <link href="/stylesheets/styles.css" media="screen" rel="stylesheet" type="text/css" />
+	<meta name="viewport" content="width=550; initial-scale=0.9; maximum-scale=1.0; user-scalable=0;" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<script src="/javascripts/jquery-1.4.2.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/javascripts/jquery.masonry.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript" charset="utf-8">
+		$(window).load(function(){
+			$('#wrapper').masonry({ animate:true, singleMode: true });
+		});
+	</script>
+</head>
+<body>
+		<div id="wrapper">
+			
+		<div class="column block" style="border:4px solid #999999">
+		<script type="text/javascript" src="http://del.icio.us/feeds/js/pwever/daily?count=15;title=daily;sort=alpha"></script>
+		<noscript><a href="http://del.icio.us/pwever/daily">daily</a></noscript>
+		</div>
+
+		<div class="column block" style="border:4px solid #F267DD">
+		<script type="text/javascript" src="http://del.icio.us/feeds/js/pwever/read?count=15;title=Read;sort=alpha"></script>
+		<noscript><a href="http://del.icio.us/pwever/read">Read</a></noscript>
+		</div>
+		
+		<div class="column block" style="border:4px solid #90ADF2">
+		<script type="text/javascript" src="http://del.icio.us/feeds/js/pwever/watch?count=15;title=Watch;sort=alpha"></script>
+		<noscript><a href="http://del.icio.us/pwever/weekly">Watch</a></noscript>
+		</div>
+
+		<div class="column block" style="border:4px solid #F2C167">
+		<script type="text/javascript" src="http://del.icio.us/feeds/js/pwever/events?count=15;title=Events;sort=alpha"></script>
+		<noscript><a href="http://del.icio.us/pwever/events">Events</a></noscript>
+		</div>
+
+		<div class="column block" style="border:4px solid #1CC73D">
+		<script type="text/javascript" src="http://del.icio.us/feeds/js/pwever/mta?count=15;title=MTA;sort=alpha"></script>
+		<noscript><a href="http://del.icio.us/pwever/mta">MTA</a></noscript>
+		</div>
+
+
+		<div class="column block" style="border:4px solid #F24441">
+		<h2>Bookmarklets</h2>
+		<ul>
+			<li>
+				<a href="http://delicious.com/pwever" title="Delicious bookmarks" alt="">Del.icio.us</a>
+				<a href="javascript:(function(){q=getSelection();if(q=='')q=prompt();if(q)window.open('http://del.icio.us/search/?fr=del_icio_us&type=all&p='+escape(q));})()" title="Bookmarklet. Adds a selection or promt to KP missing words list.">[d?]</a>
+				<a href="javascript:(function(){q=getSelection();if(q=='')q=prompt();if(q)window.open('http://del.icio.us/pwever/'+escape(q));})()" title="Bookmarklet. Adds a selection or promt to KP missing words list.">[dtag?]</a>
+				<a href="javascript:location.href='http://del.icio.us/post?v=4;url='+encodeURIComponent(location.href)+';title='+encodeURIComponent(document.title.replace(/%255E%255Cs*%257C%255Cs*$/g,''))">[d+]</a>
+			</li>
+			<li>
+				<a href="http://delicious.com/pwever/read" title="Bookmarks to read" alt="">Del.icio.us read</a>
+				<a href="javascript:(function()%7Bvar%20f=document.createElement('iframe');document.body.insertBefore(f,document.body.firstChild);var%20q='https://api.del.icio.us/v1/posts/add?description='+encodeURIComponent(document.title)+'&tags=read'+'&url='+window.location.href;f.src=q;%7D)()">[read+]</a>
+			</li>
+			<li>
+				<a href="http://www.google.com/reader/view" title="Google Reader" alt="">Reader</a>
+				<a href="javascript:var%20b=document.body;if(b&&!document.xmlVersion){void(z=document.createElement('script'));void(z.src='http://www.google.com/reader/ui/subscribe-bookmarklet.js');void(b.appendChild(z));}else{location='http://www.google.com/reader/view/feed/'+encodeURIComponent(location.href)}">[R+]</a>
+			</li>
+			
+			<li>
+				<a href="http://www.google.com/" title="Google" alt="">Google</a>
+				<a href="javascript:(function(){q=getSelection();if(q=='')q=prompt();if(q)window.open('http://www.google.com/search?q='+escape(q));})()" title="Bookmarklet. Adds a selection or promt to KP missing words list.">[g?]</a>
+			</li>
+			<li>&nbsp;</li>
+			<li><a href="javascript:(function(){q=getSelection();if(q=='')q=prompt();if(q)window.open('http://dev.mysql.com/doc/mysql/search.php?version=5.1&q=***&from=%2Fdoc%2Frefman%2F5.1%2Fen%2F&lang=en&'.replace(/\*\*\*/g,q));})()" title="Bookmarklet. Adds a selection or promt to KP missing words list.">[MySQL?]</a></li>
+			<li><a href="javascript:(function(){q=getSelection();if(q=='')q=prompt();if(q)window.open('http://www.php.net/***'.replace(/\*\*\*/g,q));})()" title="Bookmarklet. Adds a selection or promt to KP missing words list.">[PHP?]</a></li>
+			<li><a href="javascript:(function(){q=getSelection();if(q=='')q=prompt();if(q)window.open('http://www.google.com/search?btnI=1&as_q=***&as_sitesearch=corelib.rubyonrails.org'.replace(/\*\*\*/g,q));})()" title="Bookmarklet. Adds a selection or promt to KP missing words list.">[Ruby?]</a></li>
+
+			<li><a href="javascript:(function(){q=getSelection();if(q=='')q=prompt();if(q)window.open('http://www.google.com/search?btnI=1&as_q=***&as_sitesearch=railsapi.org'.replace(/\*\*\*/g,q));})()" title="Bookmarklet. Adds a selection or promt to KP missing words list.">[Rails?]</a></li>
+			<li><a href="javascript:(function(){q=getSelection();if(q=='')q=prompt();if(q)window.open('http://www.google.com/search?btnI=1&as_q=***&as_sitesearch=prototypejs.org'.replace(/\*\*\*/g,q));})()" title="Bookmarklet. Adds a selection or promt to KP missing words list.">[PrototypeJS?]</a></li>
+			<li>&nbsp;</li>
+			<li><a href="javascript:(function(){q=getSelection();if(q=='')q=prompt();if(q)window.open('http://imdb.com/find?s=all&q=***&x=0&y=0'.replace(/\*\*\*/g,q));})()" title="Bookmarklet. Adds a selection or promt to KP missing words list.">[IMDB?]</a></li>
+			<li><a href="javascript:(function(){q=getSelection();if(q=='')q=prompt();if(q)window.open('http://www.netflix.com/Search?v1=***'.replace(/\*\*\*/g,q));})()" title="Bookmarklet. Adds a selection or promt to KP missing words list.">[Netflix?]</a></li>
+			<li><a href="javascript:(function(){q=getSelection();if(q=='')q=prompt();if(q)window.open('http://en.wikipedia.org/wiki/Special:Search?search=***&fulltext=Search'.replace(/\*\*\*/g,q));})()" title="Bookmarklet. Adds a selection or promt to KP missing words list.">[Wikipedia?]</a></li>
+
+
+		</ul>
+		</div>
+
+		</div>
+		
+  </body>
+</html>

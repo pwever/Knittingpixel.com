@@ -1,0 +1,322 @@
+
+
+
+body {
+	position:relative;
+	padding:2em;
+	font-family:Georgia;
+	line-height:1.5em;
+	color:#666;
+	background-color:#CCC;
+	min-width:25em;
+}
+
+div#container {
+	position:relative;
+	max-width:40em;
+	min-width:30em;
+	margin:0 auto;
+}
+
+div#side {
+	position:absolute;
+	right:-10em;
+	width:10em;
+}
+
+div#content {
+	margin-right:0;
+}
+
+
+
+
+
+/* general */
+
+a {
+	color:inherit;
+	text-decoration:none;
+}
+
+a:hover {
+	text-decoration:underline;
+}
+
+h1, h2, h3, h4, h5, h6, h7, h8 {
+	font-size:100%;
+	font-weight:normal;
+	color:#333;
+}
+
+
+#notice {
+	padding:.5em;
+	color:green;
+}
+
+.warning {
+	color:red;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* sidebar */
+
+ul.navigation {
+	padding:0 .5em;
+	margin:0;
+}
+
+ul.navigation li {
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+
+ul.navigation li.tag {
+	display:inline;
+}
+
+ul.navigation li.tag span {
+	font-size:.75em;
+	color:white;
+	padding:.2em .3em;
+	-moz-border-radius: .3em;
+	-webkit-border-radius: .3em;
+}
+
+ul.navigation li.tag span a {
+	color:white;
+}
+
+
+
+
+
+
+
+/* todos */
+/* INPUT Field */
+
+ul.todos {
+	margin:0 0 1em 0;
+	background-color:white;
+	padding: 1em;
+	-moz-border-radius: .3em;
+	-webkit-border-radius: .3em;
+	-moz-box-shadow: 0 0 1.5em #999;
+}
+
+ul.todos li form {
+	display:inline;
+	width:95%;
+}
+
+ul.todos li form div {
+	/* it is almost impossible to style the input field to 100% width
+	   so we are using a encompassing div instead. */
+	background-color:#EEE;
+	margin-bottom:.5em;
+	-moz-border-radius: .25em;
+	-webkit-border-radius: .25em;
+}
+
+ul.todos li form div input[type=text]  {
+	width:95%;
+	font-size:2em;
+	font-family:Georgia;
+	border:0;
+	padding:5px 8px;
+	color:#999;
+	background-color:inherit;
+}
+
+ul.todos li input[type=text] {
+	font-family:Georgia;
+	font-size:1em;
+	width:90%;
+	border:0;
+	color:#CD2416;
+	background-color:white;
+}
+
+
+ul.todos:hover li form.new_todo_form input {
+	color:black;
+}
+
+ul.todos li form.new_todo_form input:focus {
+	color:black;
+}
+
+/* LIST */
+
+ul.todos div.closed li {
+	display:none;
+}
+
+ul.todos li {
+	list-style:none;
+	border-top:1px dotted #CCC;
+	position:relative;
+}
+
+ul.todos li:hover {
+	color:black;
+}
+
+ul.todos li:first-child {
+	/* remove border from input field */
+	border:0;
+}
+
+ul.todos li.done {
+	text-decoration:line-through;
+	opacity:.25;
+}
+
+ul.todos li span.labels {
+	/* tags and due date */
+	text-align:right;
+	position:absolute;
+	right:0;
+}
+
+ul.todos li span.timestamp {
+	font-size:.75em;
+	background-color:#CCC;
+	color:#333;
+	padding:.2em .3em;
+	-moz-border-radius: .3em;
+	-webkit-border-radius: .3em;
+}
+
+ul.todos li span.timestamp.due {
+  background-color:#FF3300;
+}
+
+ul.todos li span.tag {
+	font-size:.75em;
+	color:white;
+	padding:.2em .3em;
+	-moz-border-radius: .3em;
+	-webkit-border-radius: .3em;
+}
+
+ul.todos li span.tag a {
+	color:inherit;
+}
+
+ul.todos li span.delete {
+	margin-left:.25em;
+}
+
+
+
+
+
+
+/* portal */
+
+.block {
+	background-color:white;
+	margin-bottom:1em;
+	padding:1em;
+	-moz-box-shadow: 0 0 1.5em #999;
+}
+
+div.column {
+	width:15em;
+	float:left;
+	margin-right:1em;
+}
+
+p.clear {
+	clear:both;
+}
+
+div.column h2 {
+	margin:0;
+	padding:0;
+	text-align:center;
+}
+
+div.column li {
+	border-top:1px dotted #CCC;
+	white-space:nowrap;
+	overflow:hidden;
+}
+
+div.column ul {
+	padding:0;
+	margin:0;
+}
+
+
+
+
+
+
+
+
+/* stocks */
+
+table.stocks * th {
+	border-bottom:1px dotted #CCC;
+}
+
+table.stocks * th, table.stocks * td {
+	padding-right:1em;
+	white-space:nowrap;
+}
+
+table.stocks * td.shares, table.stocks * td.percentage, table.stocks * td.currency {
+	text-align:right;
+}
+
+table.stocks * td.gain {
+	color:green;
+}
+
+table.stocks tr.loss td.gain {
+	color:red;
+}
+
+table.stocks tr.sold {
+	opacity:.25;
+}
+
+table.stocks tr:hover {
+	background-color:#EEE;
+}
+
+table.stocks tr.totals td {
+	border-top:1px dotted #999;
+}
+
+table.stocks * td.projected {
+	opacity: .25;
+}
+
+
+
+
+
+
+
+
+
+
+

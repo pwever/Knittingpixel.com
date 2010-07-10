@@ -1,0 +1,9 @@
+
+<h1>Due Today</h1>
+<ul>
+<% @todos.each do |todo| -%>
+  <% tags = todo.tags ? todo.tags.map{|t| "#"+t.label}.join(" ") : "" -%>
+  <% context = todo.context ? "@"+todo.context.label : "" -%>
+  <li><%= "%s <span style='color:#CCC'>%s</span> <span style='color:orange'>%s</span>" % [todo.label, tags, context] %></li>
+<% end -%>
+</ul>
