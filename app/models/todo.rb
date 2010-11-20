@@ -16,17 +16,6 @@ class Todo < ActiveRecord::Base
 
   def parse
     self.raw_input = self.label.clone
-    #self.label.gsub!('tomorrow','tomorrow morning')
-    #matches = /\s tomorrow.* /ix.match(self.label)
-    matches = COLL_PATTERN.match(self.label)
-    matches = DATE_PATTERN.match(self.label) unless matches
-    due = Todo.parseTime(matches[0]) if matches
-    if due
-      # set due date
-      self.due_at = due
-      # remove time reference from label
-      self.label.gsub!(matches[0], '')
-    end
     
     matches = CONTEXT_PATTERN.match(self.label)
     if matches
@@ -63,6 +52,18 @@ class Todo < ActiveRecord::Base
       end
     end
     self.tags.uniq!
+    
+    #self.label.gsub!('tomorrow','tomorrow morning')
+    #matches = /\s tomorrow.* /ix.match(self.label)
+    matches = COLL_PATTERN.match(self.label)
+    matches = DATE_PATTERN.match(self.label) unless matches
+    due = Todo.parseTime(matches[0]) if matches
+    if due
+      # set due date
+      self.due_at = due
+      # remove time reference from label
+      self.label.gsub!(matches[0], '')
+    end
     
   end
   
