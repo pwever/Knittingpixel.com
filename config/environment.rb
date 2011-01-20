@@ -5,12 +5,12 @@
 # ENV['RAILS_ENV'] ||= 'production'
 
 # Specifies gem version of Rails to use when vendor/rails is not present
-RAILS_GEM_VERSION = '2.1.0' unless defined? RAILS_GEM_VERSION
+RAILS_GEM_VERSION = '2.3.8' unless defined? RAILS_GEM_VERSION
 
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
 require 'yaml'
-require 'actionmailer'
+require 'action_mailer'
 
 Rails::Initializer.run do |config|
   # Settings in config/environments/* take precedence over those specified here.
@@ -51,8 +51,8 @@ Rails::Initializer.run do |config|
   # Make sure the secret is at least 30 characters and all random, 
   # no regular words or you'll be exposed to dictionary attacks.
   config.action_controller.session = {
-    :session_key => '_Todos_session',
-    :secret      => '7862f8dfab091ebab09ed6c316305a90b2fa308c941ed3bc665d9398b4bb0dc78134e10779709a0885a0fc4993ad81c30219e572cd6fb622224ca89970b4dc71'
+    :key    => '_Todos_session',
+    :secret => '7862f8dfab091ebab09ed6c316305a90b2fa308c941ed3bc665d9398b4bb0dc78134e10779709a0885a0fc4993ad81c30219e572cd6fb622224ca89970b4dc71'
   }
 
   # Use the database for sessions instead of the cookie-based default,
