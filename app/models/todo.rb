@@ -68,6 +68,8 @@ class Todo < ActiveRecord::Base
   end
   
   def self.parseTime str
+    str.gsub! /^\s*(on|at)\s+/i, ""
+    p "date string::::" + str
     t = Chronic.parse(str, {:guess => false})
     t = t.first if t
     # some rare cases are only handled by Time.parse (for instance "at 8pm")
