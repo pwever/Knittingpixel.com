@@ -1,5 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-  
+
   map.connect "stocks/details", :controller => 'stocks', :action => 'details'
   map.search "todos/search/:needle", :controller => 'todos', :action => 'search', :requirements => {:needle => /[a-z]+/i}
   map.resources :stocks

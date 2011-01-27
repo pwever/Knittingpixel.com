@@ -18,7 +18,7 @@ class ContextsController < ApplicationController
       @context = Context.find(params[:id])
     else
       @context = Context.find_by_sql("SELECT * FROM contexts WHERE contexts.label LIKE '#{params[:id]}' LIMIT 1")[0]
-      return redirect_to :action => 'index' if @context.nil?
+      return redirect_to( :action => 'index' ) if @context.nil?
     end
     
     respond_to do |format|
